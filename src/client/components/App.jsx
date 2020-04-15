@@ -5,6 +5,8 @@ import AlertMessage from './UI/AlertMessage'
 import AppHeader from './UI/AppHeader'
 import Home from './Home'
 import UserDetails from './User/UserDetails'
+import LectureDetails from './Lecture/LectureDetails'
+import TravelRouteSchedule from './TravelRoute/TravelRouteSchedule'
 
  class App extends React.Component{
     constructor(props) {
@@ -16,9 +18,10 @@ import UserDetails from './User/UserDetails'
 
         <AlertMessage />
 
-           <h1>Hello world</h1>
-            <Route path="/" component={Home} exact />
-            <Route path="/user-details" component={UserDetails} /> 
+        <Route path="/" component={Home} exact />
+            <Route path="/user-details" component={UserDetails} />
+            <Route path="/route-search" component={TravelRouteSchedule} />
+            <Route path="/lecture-details" component={LectureDetails} />
           
         </div>
     }

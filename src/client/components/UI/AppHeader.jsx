@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
+import { connect } from 'react-redux'
 
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
@@ -10,24 +11,32 @@ import Typography from '@material-ui/core/Typography'
 
 import Navigation from './Navigation'
 
+import {
+    toggleSideMenu
+} from '../../store/actions'
+
+
 const styles = {
     header: {
         marginBottom: 25
     }
 }
+@connect(({title})=>({title}))
 class AppHeader extends React.Component {
     constructor (props) {
         super(props)
+        const{dispatch}=this.props
+        this._toggleNav = () => dispatch(toggleSideMenu())
     }
     render () {
-        return <Grid container spacing={4} className={this.props.classes.header}>
+        return <Grid container spacing={24} className={this.props.classes.header}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton color="inherit" aria-label="Menu">
+                <IconButton color="inherit" aria-label="Menu" onClick={this._toggleNav}>
                         <MenuIcon />
                     </IconButton>
-                    <Typography  color="inherit">
-                       
+                    <Typography variant="title" color="inherit">
+                        { this.props.title }
                     </Typography>
                 </Toolbar>
             </AppBar>

@@ -56,4 +56,3 @@ class UserCtrl{
 
 let userCtrl = new UserCtrl()
 export default userCtrl
-}

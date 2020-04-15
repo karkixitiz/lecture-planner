@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import mongoose from 'mongoose'
 
+import scrapeCtrl from './scrapeCtrl'
 import userCtrl from './controllers/user'
 import lectureCtrl from './controllers/lecture'
 
@@ -13,12 +14,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
 app.use(cors())
 
-mongoose.connect('mongodb://localhost/LecturePlannerDB',{userNewUrlParser:true})
+mongoose.connect('mongodb://localhost/LecturePlannerDB',{ useNewUrlParser: true, useUnifiedTopology: true,})
 
 const server = http.Server(app)
 
+/** Route plan -- START */
+app.post('/route-plan', scrapeCtrl.getRoutePlan)
+app.get('/route-suggestions/:keyword', scrapeCtrl.locationSuggestions)
+/** Route plan -- END */
+
 app.get('/user-details',userCtrl.getUserAddresses)
-app.get('/user-details',userCtrl.setUserAddresses)
+app.post('/user-details',userCtrl.setUserAddresses)
 app.get('/lecture-details',lectureCtrl.getLectureDetails)
 
 app.get('/universities',function(req,res){

@@ -22,7 +22,7 @@ import {
 } from './action-types'
 
 const SERVER_ROOT='localhost'
-const SERVER_PORT='8080'
+const SERVER_PORT='3000'
 const SERVER_URL=`http://${SERVER_ROOT}:${SERVER_PORT}`
 
 export const setTitle=title=>({

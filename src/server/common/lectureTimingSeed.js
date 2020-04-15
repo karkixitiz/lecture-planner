@@ -11,27 +11,27 @@ mongoose.connect('mongodb://localhost/LecturePlannerDB',{ useNewUrlParser: true 
 
 var lecture = [{
     subject: 'APM',
-    date:'2018.09.01',
+    date:'2020.04.16',
     time: '10.30'
 },
     {
         subject: 'C++',
-        date:'2018.09.02',
+        date:'2020.04.16',
         time: '14.45'
     },
     {
         subject: 'Advance cryptography',
-        date:'2018.09.03',
+        date:'2020.04.16',
         time: '16.00'
     },
     {
         subject: 'Modern Web Development',
-        date:'2018.09.04',
+        date:'2020.04.16',
         time: '8.45'
     },
     {
         subject: 'Germany language A2',
-        date:'2018.09.05',
+        date:'2020.04.16',
         time: '13.15'
     }]
 
